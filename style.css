@@ -1,0 +1,250 @@
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: sans-serif;
+
+}
+
+body{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 100vh;
+
+    background: black;
+    color:white;
+
+
+    position: relative;
+
+}
+
+.wrapper{
+
+    width: 430px;
+
+    background: black;
+
+    border-radius: 10px;
+
+}
+
+.wrapper h1{
+
+    font-size: 25px;
+    color:white;
+
+    font-weight: 500;
+
+    padding: 20px 25px;
+
+    border-bottom: 1px solid #ccc;
+
+}
+
+.wrapper .content{
+
+    margin: 25px 25px 35px;
+
+}
+
+.content .typing-input{
+
+    /*  hiding the input tag, but it will still function in the background */
+
+    z-index: -999;
+
+    opacity: 0;
+
+    position: absolute;
+
+}
+
+
+
+.content .inputs{
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+.inputs input{
+
+    height: 57px;
+
+    width: 56px;
+
+    margin: 4px;
+
+    font-size: 24px;
+
+    font-weight: 500;
+
+    background: none;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    color: white;
+
+    border-radius: 5px;
+
+    border: 1px solid #b5b5b5;
+
+}
+
+.inputs input:first-child{
+
+    margin-left: 0;
+
+}
+
+.content .details{
+
+    margin: 20px 0 25px;
+
+}
+
+.details p{
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+.content .reset-btn{
+
+    width: 100%;
+
+    padding: 15px 0;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 5px;
+
+    font-size: 17px;
+
+    color: black;
+
+    background: white;
+
+    cursor: pointer;
+ 
+}
+.glow {
+    box-shadow: red 0 0 90px 33px;
+  }
+  
+
+  
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the entire container */
+}
+
+/* Style for the play button */
+.play-button {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 15px 30px;
+font-size: 60px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bold;
+cursor: pointer;
+border: none;
+border-radius: 100px;
+background-color:black;
+color:white;
+width:450px;
+height:230px;
+transition: background-color 0.3s ease, color 0.3s ease;
+z-index: 1; /* Ensure the button appears on top */
+}
+
+/* Play icon style pointing to the right */
+.play-icon {
+width: 0;
+height: 0;
+border-top: 30px solid transparent; /* Increased border-top */
+border-bottom: 30px solid transparent; /* Increased border-bottom */
+border-left: 60px solid white; /* Increased border-left */
+margin-right: 20px; /* Increased margin */
+border-right: none;
+}
+
+
+/* Hover effect */
+.play-button:hover {
+background-color:grey;
+}
+.content-over-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    z-index: 1; /* Ensure the content appears on top of the video */
+}
+
+.my-button {
+   
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    position: absolute;
+    top: 10px; /* Adjust the top position */
+    right: 10px;
+}
+
+/* Hover effect */
+.my-button:hover {
+    background-color: rgb(255, 98, 98);
+}

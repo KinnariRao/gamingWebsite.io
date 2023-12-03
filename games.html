@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Links</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            padding-left: 100px;
+        }
+
+        .game-card {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-card a {
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            font-size: bold;font-size: 39px;color:black;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video-background" autoplay loop muted>
+            <source src="vdo1.mp4" type="video/mp4">
+        </video>
+        
+    </div>
+    <div class="content-over-video">
+    <div class="game-container">
+        <div class="game-card">
+            <img src="game1.webp" height="200px" alt="Game 1">
+            <a  href="game1.html">Play</a>
+        </div>
+        
+        <div class="game-card">
+            <img src="game2.jpg" alt="Game 2">
+            <a  href="game3.html">Play</a>
+        </div>
+        <div class="game-card">
+            <img src="game3.webp" alt="Game 3">
+            <a  href="game2.html">Play</a>
+        </div>
+        <div class="game-card">
+            <img src="game4.jpg" height="200px" alt="Game 3">
+            <a  href="game4.html">Play</a>
+        </div>
+        <!-- Add more game cards as needed -->
+    </div>
+</div>
+</body>
+</html>

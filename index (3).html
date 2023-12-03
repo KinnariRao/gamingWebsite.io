@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+ <script>
+  function showButtons() {
+    // Hide myButton
+    document.getElementById("myButton").style.display = "none";
+
+    // Get the element that contains the additional buttons
+    var buttonContainer = document.getElementById("buttonContainer");
+
+    // Set the display property of the container to "block" to make it visible
+    buttonContainer.style.display = "block";
+}
+</script>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video-background" autoplay loop muted>
+            <source src="y.mp4" type="video/mp4">
+        </video>
+    </div>
+  
+    <button id="myButton" class="transparent-button" onclick="showButtons()"> <img src="sticker.jpg"></button>
+    <!-- Container for additional buttons, initially hidden -->
+    <div id="buttonContainer" style="display: none">
+        <center>
+      <a href="game1.html"><button class="transparent-button">Guess the word</button></a> <br><br>
+      <a href="game2.html"><button class="transparent-button">Guess the number</button></a><br><br>
+      <a href="game3.html"><button class="transparent-button">Rock_Paper_Scissors</button></a><br><br>
+      <a href="game4.html"><button class="transparent-button">Tic Tac Toe</button></a><br><br>       
+        </center>
+    </div>
+    <center><p class="zoom-text"><img src="j.png"></p></center>
+</body>
+</html>

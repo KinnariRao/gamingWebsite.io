@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<!-- Coding by Royal 420 KE - YouTube.com/ROYAL420KE -->
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guess a word game JavaScript | Royal 420 KE</title>
+
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+    
+        <a href="games.html" class="my-button">
+            HOME
+        </a>
+   
+    
+<div class="glow">
+
+    <div class="wrapper">
+
+        <h1>Guess the word</h1>
+
+        <div class="content">
+
+            <input type="text" class="typing-input" maxlength="1">
+
+            <div class="inputs"></div>
+
+            <div class="details">
+
+                <p class="hint">Hint: <span></span></p>
+
+                <p class="guess-left">Remaining Guesses: <span></span></p>
+
+                <p class="wrong-letters">Wrong Lettres: <span></span></p>
+
+            </div>
+          
+            <button style="font-size: 20px;"  class="reset-btn">Reset Game</button>
+        </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        //storing word details as an object
+
+        //you can add more if you want...!
+
+        const wordList = [
+
+        {
+
+            word: "search",
+
+            hint: "The act of finding something"
+
+        },
+
+        {
+
+            word: "jpeg",
+
+            hint: "a small format of an image"
+
+        },
+
+        {
+
+            word: "svg",
+
+            hint: "a vector image format"
+
+        },
+
+        {
+
+            word: "server",
+
+            hint: "related to computer or system"
+
+        },
+
+        {
+
+            word: "idea",
+
+            hint: "a thought or suggestion"
+
+        },
+
+        {
+
+            word: "air",
+
+            hint: "the invisible gaseous formation"
+
+        },
+
+        {
+
+            word: "tesla",
+
+            hint: "unit of magnetic flux intensity"
+
+        },
+
+        {
+
+            word: "rocket",
+
+            hint: "a space vehicle"
+
+        },
+
+        {
+
+            word: "mars",
+
+            hint: "the second smallest planet"
+
+        },
+
+        {
+
+            word: "apple",
+
+            hint: "mobile manufacture brand"
+
+        },
+
+        {
+
+            word: "proxy",
+
+            hint: "related to server application"
+
+        },
+
+        {
+
+            word: "email",
+
+            hint: "related to sending message"
+
+        },
+
+        {
+
+            word: "html",
+
+            hint: "markup language for web development"
+
+        },
+
+        {
+
+            word: "brake",
+
+            hint: "the act of stoping a moving vehicle"
+
+        },
+
+        {
+
+            word: "cloud",
+
+            hint: "condensed water vapour"
+
+        },
+
+        {
+
+            word: "crypto",
+
+            hint: "related to cryptocurrency"
+
+        },
+
+        {
+
+            word: "flute",
+
+            hint: "a musicle instrument"
+
+        },
+
+        {
+
+            word: "kenya",
+
+            hint: "a developing country"
+
+        },
+
+        {
+
+            word: "mango",
+
+            hint: "its scientific name is mangifera indica"
+
+        },
+
+        {
+
+            word: "venice",
+
+            hint: "a famous city of waters"
+
+        },
+
+        {
+
+            word: "act",
+
+            hint: "the doing of a thing"
+
+        },
+
+        {
+
+            word: "github",
+
+            hint: "code hosting platform"
+
+        },
+
+        {
+
+            word: "png",
+
+            hint: "raster type image file"
+
+        },
+
+        {
+
+            word: "silver",
+
+            hint: "a precious greyish-white metal"
+
+        },
+
+        {
+
+            word: "java",
+
+            hint: "programming language"
+
+        },
+
+        {
+
+            word: "google",
+
+            hint: "famous search engine"
+
+        },
+
+        {
+
+            word: "banana",
+
+            hint: "a yellow curved fruit"
+
+        },
+
+        {
+
+            word: "python",
+
+            hint: "programming language"
+
+        },
+
+        {
+
+            word: "guitar",
+
+            hint: "a musical instrument"
+
+        },
+
+        {
+
+            word: "aim",
+
+            hint: "a purpose or intention"
+
+        },
+
+        {
+
+            word: "venus",
+
+            hint: "a planet of our solar system"
+
+        },
+
+        {
+
+            word: "gold",
+
+            hint: "a yellowish precious metal"
+
+        },
+
+        {
+
+            word: "london",
+
+            hint: "city that is the largest metropolis in the United Kingdom"
+
+        },
+
+        {
+
+            word: "chess",
+
+            hint: "a game played by two players"
+
+        },
+
+        {
+
+            word: "hockey",
+
+            hint: "a famous outdoor game"
+
+        },
+
+        {
+
+            word: "island",
+
+            hint: "land surrounded by water"
+
+        },
+
+        {
+
+            word: "map",
+
+            hint: "a diagramatic representation of an area"
+
+        },
+
+        {
+
+            word: "tiktok",
+
+            hint: "a social media platform"
+
+        },
+
+        {
+
+            word: "gif",
+
+            hint: "a file format of an image"
+
+        },
+
+        {
+
+            word: "avatar",
+
+            hint: "epic science fiction film"
+
+        },
+
+        {
+
+            word: "matrix",
+
+            hint: "related to mathematics"
+
+        },
+
+        {
+
+            word: "bugs",
+
+            hint: "related to programming"
+
+        }
+
+        ]
+
+
+
+        const inputs = document.querySelector(".inputs"),
+
+        //lets get random word on button click
+
+        resetBtn = document.querySelector(".reset-btn"),
+
+        wrongLetter = document.querySelector(".wrong-letters"),
+
+        //lets sow hint of the random word
+
+        hint = document.querySelector(".hint span"),
+
+        //lets work on Guesses
+
+        guessLeft = document.querySelector(".guess-left span"),
+
+        typingInput = document.querySelector(".typing-input");
+
+
+
+        //making word a global variable, so that we can access anywhere
+
+        //lets show wrong letters here
+
+        //lets do the same for correct letters
+
+        let word,maxGuesses, corrects = [], incorrects = []; //resetting all values to default
+        //global declaration
+
+
+        
+
+
+
+        function randomWord(){//Lets get random object from the wordList
+
+            let randomObj = wordList[Math.floor(Math.random() * wordList.length)];
+
+            word = randomObj.word; //getting word of random object
+
+            //maxGuesses is 8 by default
+
+            maxGuesses = 8; corrects = []; incorrects = [];//initialising variables
+
+            console.log(word);// Log the selected word to the console
+
+
+
+            hint.innerText = randomObj.hint; // Display the hint for the selected word
+
+            guessLeft.innerText = maxGuesses;// Display the remaining guesses
+
+            wrongLetter.innerText = incorrects; // Display the incorrect letters guessed
+
+            
+  // Generate HTML for the input boxes (one for each letter in the word)
+            let html = "";//space
+
+            for (let i=0; i< word.length; i++){
+
+                html += `<input type="text" disabled>`;//input is disabeled
+
+            }
+
+            inputs.innerHTML = html;// Display the input boxes for each letter of the word
+
+        }
+
+        //getting random object from the wordList
+
+        randomWord();//function call
+
+        
+
+        //Getting user pressed key
+
+        function initGame(e) {
+
+            let key = e.target.value;// Get the key (letter) that the user pressed
+
+             // This function is called when the user interacts with the game, like pressing a key.
+  // The `e` is an event object that contains information about the event (like a key press).
+
+
+   // Validate the key to ensure it's an alphabet character and not pressed before(i.e.not there in incorrects nor corrects)
+            if(key.match(/^[A-Za-z]+$/) && !incorrects.includes(` ${key}`)
+
+            && !corrects.includes(key)){
+
+                console.log(key);
+
+                //lets check if entered letter is in the word or not
+
+                if(word.includes(key)){//if user letter found in the word
+
+
+
+                    //lets sow the found letter in the input
+
+                    for(let i = 0; i < word.length; i++){
+
+                        //showing matched letter in the input value
+
+                        if(word[i] === key) {
+
+                            corrects.push(key);
+
+                            inputs.querySelectorAll("input")[i].value = key; //in the ith box we are putting key
+
+                        }
+
+                    }
+
+                }else{
+
+                    maxGuesses--; //decrement of maxGuesses by 1
+
+                    //lets add space between the wrong letters
+
+                    incorrects.push(` ${key}`);
+
+                }
+
+            guessLeft.innerText = maxGuesses;//adding the decremrnted value of maxguesses into guess left.
+
+            wrongLetter.innerText = incorrects;//to display wrong leters
+
+            }
+
+            //lets empty the input tag once user entered any key
+
+            typingInput.value = "";//clears the content (the text) inside the typingInput box
+
+
+
+            //lets show alert if user found all letters
+
+
+
+            //lets show alert after some delay, so the user entered key appear there
+
+            setTimeout(() => {
+
+                if(corrects.length === word.length){
+
+                    alert(`Congrats! You found the word. ${word.toUpperCase()}`);
+
+                    randomWord(); //calling random word function, so the game reset
+
+                }
+
+    
+
+    
+
+    
+
+                else if(maxGuesses < 1){//if user did not find all the letters
+
+                    alert("Game over! you don't have remaining guesses");
+
+                    for(let i = 0; i < word.length; i++){
+
+                        //show all letters in the input
+
+                        inputs.querySelectorAll("input")[i].value = word[i];//display the result =word
+
+                    }
+
+                }
+
+            });
+
+        }
+
+
+
+        resetBtn.addEventListener("click", randomWord);//when reset button is clicked random word function is called
+
+        typingInput.addEventListener("input", initGame);//input into box initgame function-game logic
+
+        //There is no key event on phone, so user can activate the keyboard by click on the given input boxes
+
+        inputs.addEventListener("click", () => typingInput.focus());//implicitly places the corsor in the box
+
+        //automatically focusing input when user press any key
+
+        document.addEventListener("keydown", () => typingInput.focus());//to take input from key board
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

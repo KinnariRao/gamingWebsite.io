@@ -1,0 +1,83 @@
+<html>
+    <head>
+      <title>Rock, Paper, Scissors Game</title>
+      <link rel="stylesheet" href="style.css">
+        <style>
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:black;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body {
+  background-image: url('bg3.PNG');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+        </style>
+    </head>
+  <body>
+    
+    <a href="games.html" class="my-button">
+      HOME
+  </a>
+    <center>
+    <br><br><br><br><br><br>
+ <img src="hands.avif" width="400px" ><br><br><br><br>
+    <div class="button">
+    <h1 style="color:white" >Rock, Paper, Scissors Game</h1>
+   
+    <button style="border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:pink;
+    color: #333; cursor: pointer;padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;" onclick="playGame('rock')">Rock</button>
+    <button  style="border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:pink;
+    color: #333; cursor: pointer;padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;" onclick="playGame('paper')">Paper</button>
+    <button  style="border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:pink;
+    color: #333; cursor: pointer;padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;" onclick="playGame('scissors')">Scissors</button>
+
+    <p style="font-size: 40px;color:white;font-size: bold;" id="result"></p>
+    
+</div>
+
+    <script>
+      function playGame(playerChoice) {
+        const choices = ['rock', 'paper', 'scissors'];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        const result = document.getElementById('result');
+
+        if (playerChoice === computerChoice) {
+          result.textContent = 'It\'s a tie!';
+        } else if (
+          (playerChoice === 'rock' && computerChoice === 'scissors') ||
+          (playerChoice === 'paper' && computerChoice === 'rock') ||
+          (playerChoice === 'scissors' && computerChoice === 'paper')
+        ) {
+          result.textContent = 'You win!';
+        } else {
+          result.textContent = 'You lose!';
+        }
+      }
+    </script>
+    </center>
+  </body>
+</html>
